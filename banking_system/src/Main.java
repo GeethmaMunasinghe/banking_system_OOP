@@ -1,9 +1,10 @@
 import java.util.Scanner;
 
 public class Main {
+    static BankAcc[] accDB=new BankAcc[100];
+    static int index;
     public static void main(String[] args) {
         Scanner scanner=new Scanner(System.in);
-        BankAcc[] accDB=new BankAcc[100];
         boolean isRun=true;
 
         System.out.println("----------Main Menu---------");
@@ -72,18 +73,48 @@ public class Main {
     }
 
     private static void toDisplay(int accnum) {
+        for (BankAcc acc:accDB){
+            if (acc.accNo==accnum){
+                System.out.println("Account number: "+acc.accNo);
+                System.out.println("Amount: "+acc.amount);
+                System.out.println("Account Type: "+acc.type);
+                System.out.println();
+            }
+        }
 
     }
 
     private static void toWithdraw(int accountNum,double withdrawAmount) {
-
+        for (BankAcc acc:accDB){
+            if(acc.accNo==accountNum && acc.amount>withdrawAmount){
+                acc.amount-=withdrawAmount;
+                System.out.println("Withdraw access...");
+                System.out.println();
+            }
+        }
     }
 
-    private static void toDepositAccount(int accNumber,double depositAmount) {
+    private static void toDepositAccount(int accountNumber,double depositAmount) {
+        for (BankAcc acc: accDB){
+            if (acc.accNo==accountNumber){
+                acc.amount+=depositAmount;
+                System.out.println("Deposit success...");
+                System.out.println();
+                break;
+            }
+        }
         
     }
 
     private static void toOpenAccount(int accNum,double amount,String accType) {
+        if (index>99){
+            System.out.println("Fail to create account...");
+        }else {
+            BankAcc account=new BankAcc(accNum,amount,accType);
+            accDB[index] =account;
+            index++;
+            System.out.println("Account created success....");
+        }
 
     }
 }
