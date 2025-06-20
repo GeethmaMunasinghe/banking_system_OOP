@@ -39,18 +39,51 @@ public class Main {
                     break;
                 case 2:
                     System.out.println("Deposit money");
+                    System.out.println();
+                    System.out.println("Enter account number: ");
+                    int accNumber= scanner.nextInt();
+                    System.out.println("Enter the amount: ");
+                    double depositAmount=scanner.nextDouble();
+
+                    toDepositAccount(accNumber,depositAmount);
+
                     break;
                 case 3:
                     System.out.println("Withdraw money");
+                    System.out.println();
+                    System.out.println("Enter account number: ");
+                    int accountNum=scanner.nextInt();
+                    System.out.println("Enter withdraw amount: ");
+                    double withdrawAmount=scanner.nextDouble();
+
+                    toWithdraw(accountNum,withdrawAmount);
                     break;
                 case 4:
                     System.out.println("Display account details");
+                    System.out.println();
+                    System.out.println("Enter account number: ");
+                    int accnum=scanner.nextInt();
+
+                    toDisplay(accnum);
+
                     break;
             }
         }while (isRun);
 
 
 
+    }
+
+    private static void toDisplay(int accnum) {
+        
+    }
+
+    private static void toWithdraw(int accountNum,double withdrawAmount) {
+
+    }
+
+    private static void toDepositAccount(int accNumber,double depositAmount) {
+        
     }
 
     private static void toOpenAccount(int accNum,double amount,String accType) {
