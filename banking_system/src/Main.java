@@ -3,10 +3,9 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner scanner=new Scanner(System.in);
-        //01. to open bank account
-        //02. to deposit money
-        //03. to withdraw money
-        //04. to display account details
+        BankAcc[] accDB=new BankAcc[100];
+        boolean isRun=true;
+
         System.out.println("----------Main Menu---------");
         System.out.println();
         System.out.println("01. to open bank account");
@@ -17,8 +16,6 @@ public class Main {
         System.out.println("Enter choice (if exit enter 0): ");
 
         int choice= scanner.nextInt();
-
-        boolean isRun=true;
 
         do{
             switch (choice){
@@ -75,7 +72,7 @@ public class Main {
     }
 
     private static void toDisplay(int accnum) {
-        
+
     }
 
     private static void toWithdraw(int accountNum,double withdrawAmount) {
